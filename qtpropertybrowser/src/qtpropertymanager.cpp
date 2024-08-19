@@ -1266,7 +1266,7 @@ public:
 
     struct Data
     {
-        Data() : regExp(QString(QLatin1Char('*')),  Qt::CaseSensitive, QRegularExpression::Wildcard),
+        Data() : regExp(QString(QLatin1Char('*'))),
             echoMode(QLineEdit::Normal), readOnly(false)
         {
         }
@@ -1433,7 +1433,7 @@ void QtStringPropertyManager::setValue(QtProperty *property, const QString &val)
     if (data.val == val)
         return;
 
-    if (data.regExp.isValid() && !data.regExp.exactMatch(val))
+    if (data.regExp.isValid() && !data.regExp.match(val).hasMatch())
         return;
 
     data.val = val;
