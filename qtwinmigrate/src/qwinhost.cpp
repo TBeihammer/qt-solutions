@@ -299,7 +299,7 @@ void QWinHost::resizeEvent(QResizeEvent *e)
     \reimp
 */
 #if QT_VERSION >= 0x050000
-bool QWinHost::nativeEvent(const QByteArray &eventType, void *message, long *result)
+bool QWinHost::nativeEvent(const QByteArray &eventType, void *message, qintptr *result)
 #else
 bool QWinHost::winEvent(MSG *msg, long *result)
 #endif

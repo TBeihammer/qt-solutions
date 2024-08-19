@@ -36,7 +36,7 @@ QMfcAppEventFilter::QMfcAppEventFilter() : QAbstractNativeEventFilter()
 {
 }
 
-bool QMfcAppEventFilter::nativeEventFilter(const QByteArray &, void *message, long *result)
+bool QMfcAppEventFilter::nativeEventFilter(const QByteArray &, void *message, qintptr *result)
 {
     return static_cast<QMfcApp*>(qApp)->winEventFilter((MSG*)message, result);
 }
@@ -366,7 +366,7 @@ QMfcApp::~QMfcApp()
 /*!
     \reimp
 */
-bool QMfcApp::winEventFilter(MSG *msg, long *result)
+bool QMfcApp::winEventFilter(MSG *msg, qintptr* result)
 {
     static bool recursion = false;
     if (recursion)
